@@ -12,8 +12,8 @@ public class Main {
 
     public static void createTables(Connection conn) throws SQLException {
         Statement stmt = conn.createStatement();
-        stmt.execute("CREATE TABLE IF NOT EXISTS users (id IDENTITY, name VARCHAR, password VARCHAR, money INT");
-        stmt.execute("CREATE TABLE IF NOT EXISTS players (id IDENTITY, name VARCHAR, level INT, avatar VARCHAR");
+        stmt.execute("CREATE TABLE IF NOT EXISTS users (id IDENTITY, name VARCHAR, password VARCHAR, money INT)");
+        stmt.execute("CREATE TABLE IF NOT EXISTS players (id IDENTITY, name VARCHAR, level INT, avatar VARCHAR)");
     }
 
     public static void insertUser(Connection conn, String username, String password, int money) throws SQLException {
@@ -64,8 +64,10 @@ public class Main {
         Connection conn = DriverManager.getConnection("jdbc:h2:./main");
         createTables(conn);
 
-        Spark.externalStaticFileLocation("public");
+        Spark.externalStaticFileLocation("client");
         Spark.init();
+
+        insertUser(conn, "Jack", "Jack", 100);
 
         Spark.post(
                 "/login",
