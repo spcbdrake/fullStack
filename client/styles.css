@@ -1,0 +1,14 @@
+.pongArt {
+  background-image: url("http://wallpapersdsc.net/wp-content/uploads/2015/09/Ping_Pong_HD_53.jpg");
+  background-size: contain;
+  width: 100%;
+  height: 140px;
+  border-radius: 4%; }
+
+body {
+  background: #f6f6f6; }
+
+.loginDiv {
+  width: 70%;
+  height: 300px;
+  background-color: gray; }
