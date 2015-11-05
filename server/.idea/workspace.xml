@@ -2,25 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a8357a12-4adb-4f66-8954-79111869050d" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/main.mv.db" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/com_h2database_h2_1_4_190.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/com_sparkjava_spark_core_2_3.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/main.trace.db" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/org_jodd_jodd_json_3_6_6.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="DELETED" beforePath="$Documents_IntelliJ$/fullStack/.idea/.name" afterPath="" />
-      <change type="DELETED" beforePath="$Documents_IntelliJ$/fullStack/.idea/compiler.xml" afterPath="" />
-      <change type="DELETED" beforePath="$Documents_IntelliJ$/fullStack/.idea/copyright/profiles_settings.xml" afterPath="" />
-      <change type="DELETED" beforePath="$Documents_IntelliJ$/fullStack/.idea/fullStack.iml" afterPath="" />
-      <change type="DELETED" beforePath="$Documents_IntelliJ$/fullStack/.idea/libraries/com_h2database_h2_1_4_190.xml" afterPath="" />
-      <change type="DELETED" beforePath="$Documents_IntelliJ$/fullStack/.idea/libraries/com_sparkjava_spark_core_2_3.xml" afterPath="" />
-      <change type="DELETED" beforePath="$Documents_IntelliJ$/fullStack/.idea/libraries/org_jodd_jodd_json_3_6_6.xml" afterPath="" />
-      <change type="DELETED" beforePath="$Documents_IntelliJ$/fullStack/.idea/misc.xml" afterPath="" />
-      <change type="DELETED" beforePath="$Documents_IntelliJ$/fullStack/.idea/modules.xml" afterPath="" />
-      <change type="DELETED" beforePath="$Documents_IntelliJ$/fullStack/.idea/uiDesigner.xml" afterPath="" />
-      <change type="DELETED" beforePath="$Documents_IntelliJ$/fullStack/.idea/vcs.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/main.mv.db" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/main.trace.db" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/theironyard/Main.java" afterPath="$PROJECT_DIR$/src/com/theironyard/Main.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server.iml" afterPath="$PROJECT_DIR$/server.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="server.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -45,8 +30,8 @@
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/theironyard/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.42533082">
-              <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.41020793">
+              <caret line="66" column="48" selection-start-line="66" selection-start-column="48" selection-end-line="66" selection-end-column="48" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -125,24 +110,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="theironyard" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -312,6 +279,9 @@
     </recent_temporary>
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="a8357a12-4adb-4f66-8954-79111869050d" name="Default" comment="" />
@@ -319,6 +289,13 @@
       <option name="number" value="Default" />
       <updated>1446759157933</updated>
     </task>
+    <task id="LOCAL-00001" summary="Fix IDEA project">
+      <created>1446759569095</created>
+      <option name="number" value="00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1446759569095</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -353,6 +330,10 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Fix IDEA project" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix IDEA project" />
+  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
     <watches-manager />
@@ -374,8 +355,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/theironyard/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.42533082">
-          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.41020793">
+          <caret line="66" column="48" selection-start-line="66" selection-start-column="48" selection-end-line="66" selection-end-column="48" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
