@@ -5,6 +5,7 @@ import spark.Session;
 import spark.Spark;
 
 import java.sql.*;
+import java.util.ArrayList;
 
 public class Main {
     public static final int START_MONEY = 100;
@@ -13,7 +14,7 @@ public class Main {
     public static void createTables(Connection conn) throws SQLException {
         Statement stmt = conn.createStatement();
         stmt.execute("CREATE TABLE IF NOT EXISTS users (id IDENTITY, name VARCHAR, password VARCHAR, money INT)");
-        stmt.execute("CREATE TABLE IF NOT EXISTS players (id IDENTITY, name VARCHAR, level INT, avatar VARCHAR)");
+        stmt.execute("CREATE TABLE IF NOT EXISTS players (id IDENTITY, name VARCHAR, level INT)");
     }
 
     public static void insertUser(Connection conn, String username, String password, int money) throws SQLException {
@@ -26,7 +27,7 @@ public class Main {
 
     public static User selectUser(Connection conn, String username) throws SQLException {
         User user = null;
-        PreparedStatement stmt = conn.prepareStatement("SELECT * FROM users WHERE username = ?");
+        PreparedStatement stmt = conn.prepareStatement("SELECT * FROM users WHERE name = ?");
         stmt.setString(1, username);
         ResultSet results = stmt.executeQuery();
         if (results.next()) {
@@ -38,7 +39,7 @@ public class Main {
     }
 
     public static void insertPlayer(Connection conn, String name, int level) throws SQLException {
-        PreparedStatement stmt = conn.prepareStatement("INSERT INTO players VALUES (NULL, ?, ?, ?)");
+        PreparedStatement stmt = conn.prepareStatement("INSERT INTO players VALUES (NULL, ?, ?)");
         stmt.setString(1, name);
         stmt.setInt(2, level);
         stmt.execute();
@@ -58,6 +59,20 @@ public class Main {
         return player;
     }
 
+    public static ArrayList<Player> selectPlayers(Connection conn) throws SQLException {
+        ArrayList<Player> players = new ArrayList<>();
+        PreparedStatement stmt = conn.prepareStatement("SELECT * FROM players ORDER BY RAND() LIMIT 6");
+        ResultSet results = stmt.executeQuery();
+        while (results.next()) {
+            Player player = new Player();
+            player.id = results.getInt("id");
+            player.name = results.getString("name");
+            player.level = results.getInt("level");
+            players.add(player);
+        }
+        return players;
+    }
+
 
 
     public static void main(String[] args) throws SQLException {
@@ -67,7 +82,19 @@ public class Main {
         Spark.externalStaticFileLocation("client");
         Spark.init();
 
-        insertUser(conn, "Jack", "Jack", 100);
+        if (selectUser(conn, "Jack") == null) {
+            insertUser(conn, "Jack", "Jack", 100);
+        }
+
+        if (selectPlayers(conn).size() == 0){
+            insertPlayer(conn, "Jack", 100);
+            insertPlayer(conn, "Ben", 9000);
+            insertPlayer(conn, "Terry", 100);
+            insertPlayer(conn, "Juan", 100);
+            insertPlayer(conn, "Josh", 100);
+            insertPlayer(conn, "Zach", 100);
+
+        }
 
         Spark.post(
                 "/login",
@@ -93,6 +120,14 @@ public class Main {
                     JsonSerializer serializer = new JsonSerializer();
                     String json = serializer.serialize(selectUser(conn, username));
                     return json;
+                })
+        );
+
+        Spark.get(
+                "/matches",
+                ((request, response) -> {
+                    JsonSerializer serializer = new JsonSerializer();
+                    return serializer.serialize(selectPlayers(conn));
                 })
         );
     }
