@@ -17,22 +17,22 @@ public class Main {
         stmt.execute("CREATE TABLE IF NOT EXISTS players (id IDENTITY, name VARCHAR, level INT)");
     }
 
-    public static void insertUser(Connection conn, String username, String password, int money) throws SQLException {
+    public static void insertUser(Connection conn, String userName, String password, int money) throws SQLException {
         PreparedStatement stmt = conn.prepareStatement("INSERT INTO users VALUES (NULL, ?, ?, ?)");
-        stmt.setString(1, username);
+        stmt.setString(1, userName);
         stmt.setString(2, password);
         stmt.setInt(3, money);
         stmt.execute();
     }
 
-    public static User selectUser(Connection conn, String username, int money) throws SQLException {
+    public static User selectUser(Connection conn, String userName) throws SQLException {
         User user = null;
-        PreparedStatement stmt = conn.prepareStatement("SELECT * FROM users WHERE name = ?, money = ?");
-        stmt.setString(1, username);
-        stmt.setInt(2, money);
+        PreparedStatement stmt = conn.prepareStatement("SELECT * FROM users WHERE name = ?");
+        stmt.setString(1, userName);
         ResultSet results = stmt.executeQuery();
         if (results.next()) {
             user = new User();
+            user.userName = results.getString("name");
             user.id = results.getInt("id");
             user.password = results.getString("password");
             user.money = results.getInt("money");
@@ -85,7 +85,7 @@ public class Main {
         Spark.init();
 
         if (selectUser(conn, "Jack") == null) {
-            insertUser(conn, "Jack", "Jack", 100);
+            insertUser(conn, "Jack", "Jack", START_MONEY);
         }
 
         if (selectPlayers(conn).size() == 0){
@@ -104,38 +104,38 @@ public class Main {
         Spark.post(
                 "/login",
                 ((request, response) -> {
-                    String username = request.queryParams("userName");
+                    String userName = request.queryParams("userName");
                     String password = request.queryParams("password");
 
-                    if (username.isEmpty() || password.isEmpty()) {
+                    if (userName.isEmpty() || password.isEmpty()) {
                         Spark.halt(403);
                     }
 
-                    User user = selectUser(conn, username);
+                    User user = selectUser(conn, userName);
                     if (user == null) {
-                        insertUser(conn, username, password, START_MONEY);
+                        insertUser(conn, userName, password, START_MONEY);
                     }
                     else if (!password.equals(user.password)) {
                         Spark.halt(403);
                     }
 
                     Session session = request.session();
-                    session.attribute("userName", username);
+                    session.attribute("userName", userName);
 
                     JsonSerializer serializer = new JsonSerializer();
-                    String json = serializer.serialize(selectUser(conn, username));
+                    String json = serializer.serialize(selectUser(conn, userName));
                     return json;
                 })
         );
 
-     /*   Spark.post(
+        Spark.post(
                 "/logout",
                 ((request, response) -> {
                     Session session = request.session();
                     session.invalidate();
                     return "";
                 })
-        );*/
+        );
 
         Spark.get(
                 "/matches",
