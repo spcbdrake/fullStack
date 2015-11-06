@@ -99,7 +99,7 @@ public class Main {
         Spark.post(
                 "/login",
                 ((request, response) -> {
-                    String username = request.queryParams("username");
+                    String username = request.queryParams("userName");
                     String password = request.queryParams("password");
 
                     if (username.isEmpty() || password.isEmpty()) {
