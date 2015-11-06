@@ -93,7 +93,10 @@ public class Main {
             insertPlayer(conn, "Juan", 100);
             insertPlayer(conn, "Josh", 100);
             insertPlayer(conn, "Zach", 100);
-
+            insertPlayer(conn, "Alice", 100);
+            insertPlayer(conn, "Brian", 100);
+            insertPlayer(conn, "Charlie", 100);
+            insertPlayer(conn, "David", 100);
         }
 
         Spark.post(
@@ -120,6 +123,15 @@ public class Main {
                     JsonSerializer serializer = new JsonSerializer();
                     String json = serializer.serialize(selectUser(conn, username));
                     return json;
+                })
+        );
+
+        Spark.post(
+                "/logout",
+                ((request, response) -> {
+                    Session session = request.session();
+                    session.invalidate();
+                    return "";
                 })
         );
 
