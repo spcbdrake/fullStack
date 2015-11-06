@@ -102,7 +102,7 @@ public class Main {
         Spark.post(
                 "/login",
                 ((request, response) -> {
-                    String username = request.queryParams("username");
+                    String username = request.queryParams("userName");
                     String password = request.queryParams("password");
 
                     if (username.isEmpty() || password.isEmpty()) {
@@ -118,7 +118,7 @@ public class Main {
                     }
 
                     Session session = request.session();
-                    session.attribute("username", username);
+                    session.attribute("userName", username);
 
                     JsonSerializer serializer = new JsonSerializer();
                     String json = serializer.serialize(selectUser(conn, username));
@@ -126,14 +126,14 @@ public class Main {
                 })
         );
 
-        Spark.post(
+     /*   Spark.post(
                 "/logout",
                 ((request, response) -> {
                     Session session = request.session();
                     session.invalidate();
                     return "";
                 })
-        );
+        );*/
 
         Spark.get(
                 "/matches",
