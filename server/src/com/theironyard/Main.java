@@ -109,16 +109,16 @@ public class Main {
         }
 
         if (selectPlayers(conn).size() == 0){
-            insertPlayer(conn, "Jack", 100);
-            insertPlayer(conn, "Ben", 9000);
-            insertPlayer(conn, "Terry", 100);
-            insertPlayer(conn, "Juan", 100);
-            insertPlayer(conn, "Josh", 100);
-            insertPlayer(conn, "Zach", 100);
-            insertPlayer(conn, "Alice", 100);
-            insertPlayer(conn, "Brian", 100);
-            insertPlayer(conn, "Charlie", 100);
-            insertPlayer(conn, "David", 100);
+            insertPlayer(conn, "Jack", 1);
+            insertPlayer(conn, "Ben", 2);
+            insertPlayer(conn, "Terry", 3);
+            insertPlayer(conn, "Juan", 4);
+            insertPlayer(conn, "Josh", 5);
+            insertPlayer(conn, "Zach", 1);
+            insertPlayer(conn, "Alice", 2);
+            insertPlayer(conn, "Brian", 3);
+            insertPlayer(conn, "Charlie", 4);
+            insertPlayer(conn, "David", 5);
         }
 
         Spark.post(
