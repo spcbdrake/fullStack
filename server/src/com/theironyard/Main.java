@@ -75,7 +75,27 @@ public class Main {
         return players;
     }
 
+    public static ArrayList<User> selectUsers(Connection conn) throws SQLException {
+        ArrayList<User> users = new ArrayList<>();
+        PreparedStatement stmt = conn.prepareStatement("SELECT * FROM users");
+        ResultSet results = stmt.executeQuery();
+        while (results.next()) {
+            User user = new User();
+            user.userName = results.getString("userName");
+            user.id = results.getInt("id");
+            user.password = results.getString("password");
+            user.money = results.getInt("money");
+            users.add(user);
+        }
+        return users;
+    }
 
+    static void updateMoney (Connection conn, int id, int money) throws SQLException {
+        PreparedStatement stmt = conn.prepareStatement("UPDATE users SET money = ? WHERE id = ?");
+        stmt.setInt(1, money);
+        stmt.setInt(2, id);
+        stmt.execute();
+    }
 
     public static void main(String[] args) throws SQLException {
         Connection conn = DriverManager.getConnection("jdbc:h2:./main");
@@ -144,5 +164,28 @@ public class Main {
                     return serializer.serialize(selectPlayers(conn));
                 })
         );
+
+        Spark.post(
+                "/update-money",
+                ((request, response) -> {
+                    Session session = request.session();
+                    String userName = session.attribute("userName");
+
+                    String money = request.queryParams("money");
+
+                    try {
+                        int newMoney = Integer.valueOf(money);
+                        User me = selectUser(conn, userName);
+                        updateMoney(conn, me.id, newMoney);
+                    } catch (Exception e) {
+                    }
+
+                    JsonSerializer serializer = new JsonSerializer();
+                    String json = serializer.serialize(selectUser(conn, userName));
+                    return json;
+                })
+        );
+
+
     }
 }
