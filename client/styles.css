@@ -6,9 +6,39 @@
   border-radius: 4%; }
 
 body {
-  background: #f6f6f6; }
+  background: rgba(25, 94, 60, 0.25); }
 
 .loginDiv {
-  width: 70%;
+  width: 32%;
   height: 300px;
-  background-color: gray; }
+  background-color: #5b78de;
+  margin: auto;
+  border-radius: 30%; }
+
+h1 {
+  text-shadow: 5px 5px #8aacb8;
+  font-size: 50px; }
+
+.userName {
+  display: block;
+  margin-bottom: 6%;
+  margin-top: 18%;
+  width: 70%;
+  height: 35px; }
+
+form {
+  margin-left: 23%; }
+
+.password {
+  display: block;
+  margin-bottom: 10%;
+  width: 70%;
+  height: 35px; }
+
+.submit {
+  width: 50%;
+  height: 43px;
+  color: saddlebrown;
+  font-weight: 900;
+  font-size: x-large;
+  margin-left: 7%; }
