@@ -25,15 +25,17 @@ public class Main {
         stmt.execute();
     }
 
-    public static User selectUser(Connection conn, String username) throws SQLException {
+    public static User selectUser(Connection conn, String username, int money) throws SQLException {
         User user = null;
-        PreparedStatement stmt = conn.prepareStatement("SELECT * FROM users WHERE name = ?");
+        PreparedStatement stmt = conn.prepareStatement("SELECT * FROM users WHERE name = ?, money = ?");
         stmt.setString(1, username);
+        stmt.setInt(2, money);
         ResultSet results = stmt.executeQuery();
         if (results.next()) {
             user = new User();
             user.id = results.getInt("id");
             user.password = results.getString("password");
+            user.money = results.getInt("money");
         }
         return user;
     }
