@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2837abd3-1268-40f4-87aa-5b38351f0883" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/main.mv.db" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/theironyard/Main.java" afterPath="$PROJECT_DIR$/src/com/theironyard/Main.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="server.iws" />
@@ -323,6 +321,13 @@
       <option name="number" value="Default" />
       <updated>1446761826443</updated>
     </task>
+    <task id="LOCAL-00001" summary="Add logout and increased player pool to 10">
+      <created>1446777209067</created>
+      <option name="number" value="00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1446777209067</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -356,6 +361,10 @@
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Add logout and increased player pool to 10" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add logout and increased player pool to 10" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
