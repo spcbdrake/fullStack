@@ -37,7 +37,8 @@ img {
     margin: -5.5% 7% 0 0; }
 
 .container {
-  margin-top: 2%; }
+  margin-top: 2%;
+  margin-bottom: 2%; }
   .container .colLeft {
     background-color: #5B78DE;
     min-height: 467px;
@@ -48,8 +49,8 @@ img {
       background-color: white;
       padding: 1%; }
     .container .colLeft #theBest {
-      margin: 0 0 0 10%;
-      list-style-type: none; }
+      list-style-type: none;
+      padding-left: 0; }
       .container .colLeft #theBest li {
         counter-increment: step-counter;
         margin: 4%; }
@@ -88,7 +89,8 @@ img {
 
 .playerName {
   font-weight: bold;
-  font-size: 20px; }
+  font-size: 20px;
+  vertical-align: bottom; }
 
 .odds {
   text-align: center; }
@@ -98,3 +100,15 @@ img {
 
 .floatRight {
   float: right; }
+
+footer {
+  background-color: #5B78DE;
+  min-height: 80px;
+  border-top: 2px solid #8aacb8; }
+  footer p {
+    padding: 2.25%  0 2% 6%; }
+  footer #footerIcon {
+    float: right;
+    max-width: 30px;
+    border-radius: 0;
+    margin: -5% 7% 0 0; }
