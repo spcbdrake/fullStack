@@ -128,7 +128,7 @@ public class Main {
                     String password = request.queryParams("password");
 
                     if (userName.isEmpty() || password.isEmpty()) {
-                        Spark.halt(403);
+                        return (403);
                     }
 
                     User user = selectUser(conn, userName);
@@ -136,7 +136,7 @@ public class Main {
                         insertUser(conn, userName, password, START_MONEY);
                     }
                     else if (!password.equals(user.password)) {
-                        Spark.halt(403);
+                        return (403);
                     }
 
                     Session session = request.session();
