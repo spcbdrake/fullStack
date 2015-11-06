@@ -6,9 +6,95 @@
   border-radius: 4%; }
 
 body {
-  background: #f6f6f6; }
+  background: #f6f6f6;
+  margin: 0;
+  padding: 0; }
 
 .loginDiv {
   width: 70%;
   height: 300px;
   background-color: gray; }
+
+img {
+  width: 100px;
+  border-radius: 100%; }
+
+.mainHeader {
+  width: 100%;
+  border-bottom: 2px solid #8aacb8;
+  background-color: #5B78DE; }
+  .mainHeader h1 {
+    text-align: center;
+    margin: -5% 0 3% 0;
+    font-family: 'Lobster', cursive;
+    font-size: 4em; }
+  .mainHeader #pongIcon {
+    width: 65px;
+    margin: 2% 0 0 6%;
+    border-radius: 0; }
+  .mainHeader h3 {
+    float: right;
+    margin: -5.5% 7% 0 0; }
+
+.container {
+  margin-top: 2%; }
+  .container .colLeft {
+    background-color: #5B78DE;
+    min-height: 467px;
+    box-shadow: 2px 2px 2px #8aacb8; }
+    .container .colLeft h4 {
+      font-size: 2em;
+      text-align: center;
+      background-color: white;
+      padding: 1%; }
+    .container .colLeft #theBest {
+      margin: 0 0 0 10%;
+      list-style-type: none; }
+      .container .colLeft #theBest li {
+        counter-increment: step-counter;
+        margin: 4%; }
+        .container .colLeft #theBest li:before {
+          content: counter(step-counter);
+          margin-right: 10px;
+          font-size: 80%;
+          background-color: white;
+          color: black;
+          font-weight: bold;
+          padding: 3px 8px;
+          border-radius: 3px; }
+
+.colRight {
+  float: right;
+  min-height: 400px; }
+  .colRight .colRightTop, .colRight .colRightMiddle, .colRight .colRightBottom {
+    height: 150px;
+    margin-bottom: 1%;
+    background-color: #5B78DE;
+    overflow: hidden;
+    box-shadow: 2px 2px 2px #8aacb8; }
+
+.row {
+  margin-left: 0;
+  margin-right: 0; }
+
+.vs {
+  text-align: center;
+  font-weight: bold;
+  font-size: 3em;
+  padding-top: 50px; }
+
+.match {
+  margin-top: 10px; }
+
+.playerName {
+  font-weight: bold;
+  font-size: 20px; }
+
+.odds {
+  text-align: center; }
+
+.floatLeft {
+  float: left; }
+
+.floatRight {
+  float: right; }
