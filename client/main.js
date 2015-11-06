@@ -29,16 +29,17 @@ var page = {
         url: "/login",
         data: user,
         success: function(resp){
-          if(resp === "404"){
+          if(resp === "403"){
             console.log("you fucked up");
             alert("Wrong Password");
           }
           else{
           console.log(resp);
           var currentUser = JSON.parse(resp);
+          page.currentUser = {userName: currentUser.userName, money: currentUser.money};
           console.log("Current User", currentUser);
           $('section').toggleClass('hidden');
-          $('#currentUser').html(currentUser.userName);
+          $('#userName').html(currentUser.userName);
           $('#userMoney').html(currentUser.money);
         }
         },
@@ -191,11 +192,28 @@ var page = {
       if(page.currentWinners[i] === page.currentPicks[i]){
         console.log("you picked correctly and won! good job, champ");
         wins++;
+        page.currentUser.money += 20;
+
       }
       else{
         console.log("you picked incorrectly and lost");
+        page.currentUser.money -= 20;
       }
     }
+    $('#userMoney').html(page.currentUser.money);
+    var money = toString(page.currentUser.money);
+    $.ajax({
+      method: 'POST',
+      url: '/update-money',
+      data: money,
+      success: function(){
+        console.log("Received that shit");
+      },
+      failure: function(){
+        console.log("What the fuck");
+      }
+
+    });
     return wins;
   },
   //the url for the database i'm using
@@ -203,5 +221,6 @@ var page = {
   currentMatches : [],
   currentPicks: [],
   currentWinners: [],
+  currentUser: {},
 
 };
