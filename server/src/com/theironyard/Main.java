@@ -13,7 +13,7 @@ public class Main {
 
     public static void createTables(Connection conn) throws SQLException {
         Statement stmt = conn.createStatement();
-        stmt.execute("CREATE TABLE IF NOT EXISTS users (id IDENTITY, name VARCHAR, password VARCHAR, money INT)");
+        stmt.execute("CREATE TABLE IF NOT EXISTS users (id IDENTITY, userName VARCHAR, password VARCHAR, money INT)");
         stmt.execute("CREATE TABLE IF NOT EXISTS players (id IDENTITY, name VARCHAR, level INT)");
     }
 
@@ -32,7 +32,7 @@ public class Main {
         ResultSet results = stmt.executeQuery();
         if (results.next()) {
             user = new User();
-            user.userName = results.getString("name");
+            user.userName = results.getString("userName");
             user.id = results.getInt("id");
             user.password = results.getString("password");
             user.money = results.getInt("money");
@@ -55,7 +55,7 @@ public class Main {
         if (results.next()) {
             player = new Player();
             player.id = results.getInt("id");
-            player.name = results.getString("name");
+            player.name = results.getString("userName");
             player.level = results.getInt("level");
         }
         return player;
@@ -68,7 +68,7 @@ public class Main {
         while (results.next()) {
             Player player = new Player();
             player.id = results.getInt("id");
-            player.name = results.getString("name");
+            player.name = results.getString("userName");
             player.level = results.getInt("level");
             players.add(player);
         }
