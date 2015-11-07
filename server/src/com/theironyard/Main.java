@@ -97,6 +97,21 @@ public class Main {
         stmt.execute();
     }
 
+    public static ArrayList<User> orderUsers(Connection conn) throws SQLException {
+        ArrayList<User> users = new ArrayList();
+        PreparedStatement stmt = conn.prepareStatement("SELECT * FROM users ORDER BY money ASC");
+        ResultSet results = stmt.executeQuery();
+        while (results.next()) {
+            User user = new User();
+            user.userName = results.getString("userName");
+            user.id = results.getInt("id");
+            user.password = results.getString("password");
+            user.money = results.getInt("money");
+            users.add(user);
+        }
+        return users;
+    }
+
     public static void main(String[] args) throws SQLException {
         Connection conn = DriverManager.getConnection("jdbc:h2:./main");
         createTables(conn);
@@ -170,7 +185,6 @@ public class Main {
                 ((request, response) -> {
                     Session session = request.session();
                     String userName = session.attribute("userName");
-                    String password = session.attribute("password");
 
                     String money = request.queryParams("money");
 
@@ -188,6 +202,12 @@ public class Main {
                 })
         );
 
-
+        Spark.get(
+                "/topTen",
+                ((request, response) -> {
+                    JsonSerializer serializer = new JsonSerializer();
+                    return serializer.serialize(orderUsers(conn));
+                })
+        );Added o
     }
 }
