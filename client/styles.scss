@@ -83,22 +83,33 @@ img {
   }
   h3 {
     float: right;
-    margin: -5.5% 7% 0 0;
+    margin: -5.5% 13.5% 0 0;
   }
 }
 
+.logoutBtn {
+  float: right;
+  margin-top: -5.25%;
+  margin-right: 8%;
+}
+
 .container {
+  .colLeft div {
+    display: block;
+  }
   margin-top: 2%;
   margin-bottom: 2%;
-  .colLeft {
+  .colLeftTop {
     background-color: #5B78DE;
-    min-height: 467px;
+    min-height: 308px;
     box-shadow: 2px 2px 2px #8aacb8;
-    h4 {
+    h3 {
       font-size: 2em;
       text-align: center;
       background-color: white;
-      padding: 1%
+      border-radius: 5px;
+      width: 80%;
+      margin-left: 10%;
     }
     #theBest {
       list-style-type: none;
@@ -119,6 +130,10 @@ img {
       }
     }
   }
+}
+.bottomLeftDiv {
+  background-color: #5B78DE;
+  display: inline-grid;
 }
 
 
@@ -143,25 +158,30 @@ img {
   font-size: 3em;
   padding-top: 50px;
 }
-.match{
+#match{
   margin-top: 10px;
+  #playerName{
+    display: block;
+    margin-top: 1%;
+    font-weight: bold;
+    font-size: 20px;
+    text-align: center;
+    background-color: white;
+    border-radius: 5px;
+  }
 }
-.playerName{
-  font-weight: bold;
-  font-size: 20px;
-  vertical-align: bottom;
+
+#playerImg {
+margin: -1% 0 0 34%;
 }
 
 .odds{
-  text-align: center;
+  // text-align: center;
+  float: right;
+  margin-top: -13%;
+  margin-right: 5%;
 }
 
-.floatLeft{
-  float: left;
-}
-.floatRight{
-  float: right;
-}
 
 footer {
   background-color: #5B78DE;
@@ -175,5 +195,12 @@ footer {
     max-width: 30px;
     border-radius: 0;
     margin: -5% 7% 0 0;
+  }
+  li {
+    list-style-type: none;
+    display: inline-block;
+    img {
+      max-width: 50px;
+    }
   }
 }
