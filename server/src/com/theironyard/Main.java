@@ -13,7 +13,7 @@ public class Main {
 
     public static void createTables(Connection conn) throws SQLException {
         Statement stmt = conn.createStatement();
-        stmt.execute("CREATE TABLE IF NOT EXISTS users (id IDENTITY, name VARCHAR, password VARCHAR, money INT)");
+        stmt.execute("CREATE TABLE IF NOT EXISTS users (id IDENTITY, userName VARCHAR, password VARCHAR, money INT)");
         stmt.execute("CREATE TABLE IF NOT EXISTS players (id IDENTITY, name VARCHAR, level INT)");
     }
 
@@ -27,12 +27,12 @@ public class Main {
 
     public static User selectUser(Connection conn, String userName) throws SQLException {
         User user = null;
-        PreparedStatement stmt = conn.prepareStatement("SELECT * FROM users WHERE name = ?");
+        PreparedStatement stmt = conn.prepareStatement("SELECT * FROM users WHERE userName = ?");
         stmt.setString(1, userName);
         ResultSet results = stmt.executeQuery();
         if (results.next()) {
             user = new User();
-            user.userName = results.getString("name");
+            user.userName = results.getString("userName");
             user.id = results.getInt("id");
             user.password = results.getString("password");
             user.money = results.getInt("money");
@@ -99,7 +99,7 @@ public class Main {
 
     public static ArrayList<User> orderUsers(Connection conn) throws SQLException {
         ArrayList<User> users = new ArrayList();
-        PreparedStatement stmt = conn.prepareStatement("SELECT * FROM users ORDER BY money ASC");
+        PreparedStatement stmt = conn.prepareStatement("SELECT * FROM users ORDER BY money DESC");
         ResultSet results = stmt.executeQuery();
         while (results.next()) {
             User user = new User();
@@ -192,7 +192,6 @@ public class Main {
                         int newMoney = Integer.valueOf(money);
                         User me = selectUser(conn, userName);
                         updateMoney(conn, me.id, newMoney);
-                        insertUser(conn, me.userName, me.password, newMoney);
                     } catch (Exception e) {
                     }
 
