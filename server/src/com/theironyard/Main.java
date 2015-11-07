@@ -27,7 +27,7 @@ public class Main {
 
     public static User selectUser(Connection conn, String userName) throws SQLException {
         User user = null;
-        PreparedStatement stmt = conn.prepareStatement("SELECT * FROM users WHERE name = ?");
+        PreparedStatement stmt = conn.prepareStatement("SELECT * FROM users WHERE userName = ?");
         stmt.setString(1, userName);
         ResultSet results = stmt.executeQuery();
         if (results.next()) {
@@ -55,7 +55,7 @@ public class Main {
         if (results.next()) {
             player = new Player();
             player.id = results.getInt("id");
-            player.name = results.getString("userName");
+            player.name = results.getString("name");
             player.level = results.getInt("level");
         }
         return player;
@@ -68,7 +68,7 @@ public class Main {
         while (results.next()) {
             Player player = new Player();
             player.id = results.getInt("id");
-            player.name = results.getString("userName");
+            player.name = results.getString("name");
             player.level = results.getInt("level");
             players.add(player);
         }
@@ -99,7 +99,7 @@ public class Main {
 
     public static ArrayList<User> orderUsers(Connection conn) throws SQLException {
         ArrayList<User> users = new ArrayList();
-        PreparedStatement stmt = conn.prepareStatement("SELECT * FROM users ORDER BY money ASC");
+        PreparedStatement stmt = conn.prepareStatement("SELECT * FROM users ORDER BY money DESC");
         ResultSet results = stmt.executeQuery();
         while (results.next()) {
             User user = new User();
@@ -192,7 +192,6 @@ public class Main {
                         int newMoney = Integer.valueOf(money);
                         User me = selectUser(conn, userName);
                         updateMoney(conn, me.id, newMoney);
-                        insertUser(conn, me.userName, me.password, newMoney);
                     } catch (Exception e) {
                     }
 
