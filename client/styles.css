@@ -2,11 +2,10 @@
   background-image: url("http://wallpapersdsc.net/wp-content/uploads/2015/09/Ping_Pong_HD_53.jpg");
   background-size: contain;
   width: 100%;
-  height: 140px;
-  border-radius: 4%; }
+  height: 140px; }
 
 body {
-  background: rgba(25, 94, 60, 0.25);
+  background: white;
   margin: 0;
   padding: 0; }
 
@@ -18,7 +17,7 @@ body {
   border-radius: 30%; }
 
 h1 {
-  text-shadow: 5px 5px #8aacb8;
+  text-shadow: 2px 2px #8aacb8;
   font-size: 50px; }
 
 .userName {
@@ -67,26 +66,36 @@ img {
     border-radius: 0; }
   .mainHeader h3 {
     float: right;
-    margin: -5.5% 7% 0 0; }
+    margin: -5.5% 13.5% 0 0; }
+
+.logoutBtn {
+  float: right;
+  margin-top: -5.25%;
+  margin-right: 8%; }
 
 .container {
-  margin-top: 2%; }
-  .container .colLeft {
+  margin-top: 2%;
+  margin-bottom: 2%; }
+  .container .colLeft div {
+    display: block; }
+  .container .colLeftTop {
     background-color: #5B78DE;
-    min-height: 467px;
+    min-height: 308px;
     box-shadow: 2px 2px 2px #8aacb8; }
-    .container .colLeft h4 {
+    .container .colLeftTop h3 {
       font-size: 2em;
       text-align: center;
       background-color: white;
-      padding: 1%; }
-    .container .colLeft #theBest {
-      margin: 0 0 0 10%;
-      list-style-type: none; }
-      .container .colLeft #theBest li {
+      border-radius: 5px;
+      width: 80%;
+      margin-left: 10%; }
+    .container .colLeftTop #theBest {
+      list-style-type: none;
+      padding-left: 0; }
+      .container .colLeftTop #theBest li {
         counter-increment: step-counter;
         margin: 4%; }
-        .container .colLeft #theBest li:before {
+        .container .colLeftTop #theBest li:before {
           content: counter(step-counter);
           margin-right: 10px;
           font-size: 80%;
@@ -95,6 +104,10 @@ img {
           font-weight: bold;
           padding: 3px 8px;
           border-radius: 3px; }
+
+.bottomLeftDiv {
+  background-color: #5B78DE;
+  display: inline-grid; }
 
 .colRight {
   float: right;
@@ -116,18 +129,38 @@ img {
   font-size: 3em;
   padding-top: 50px; }
 
-.match {
+#match {
   margin-top: 10px; }
+  #match #playerName {
+    display: block;
+    margin-top: 1%;
+    font-weight: bold;
+    font-size: 20px;
+    text-align: center;
+    background-color: white;
+    border-radius: 5px; }
 
-.playerName {
-  font-weight: bold;
-  font-size: 20px; }
+#playerImg {
+  margin: -1% 0 0 34%; }
 
 .odds {
-  text-align: center; }
+  float: right;
+  margin-top: -13%;
+  margin-right: 5%; }
 
-.floatLeft {
-  float: left; }
-
-.floatRight {
-  float: right; }
+footer {
+  background-color: #5B78DE;
+  min-height: 80px;
+  border-top: 2px solid #8aacb8; }
+  footer p {
+    padding: 2.25%  0 2% 6%; }
+  footer #footerIcon {
+    float: right;
+    max-width: 30px;
+    border-radius: 0;
+    margin: -5% 7% 0 0; }
+  footer li {
+    list-style-type: none;
+    display: inline-block; }
+    footer li img {
+      max-width: 50px; }
