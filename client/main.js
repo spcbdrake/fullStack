@@ -51,7 +51,24 @@ var page = {
       });
 
     });
+    $('.logoutBtn').on('click', function(event){
+      event.preventDefault();
+      $.ajax({
+        method: 'Post',
+        url: '/logout',
+        data: page.currentUser,
+        success: function(resp){
+          console.log(resp);
+          $('section').toggleClass('hidden');
+      },
+        failure: function(resp){
+          console.log(resp);
+          console.log("what happened?");
+        }
+      });
 
+
+    });
     // if you are creating a new user this sends upon submitting the info
     $('#newLogin').on('submit', function(event){
       event.preventDefault();
