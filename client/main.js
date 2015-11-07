@@ -163,7 +163,9 @@ var page = {
   runMatches: function(){
     var match1 = page.currentMatches.slice(0,2);
       console.log("Match 1", match1);
-      var chance1= match1[0].level/(match1[0].level+match1[1].level);
+      var chance1 = match1[0].level/(match1[0].level+match1[1].level);
+      var payOut1 = match1[1].level/match1[0].level;
+      var payOut2 = 1/payOut1;
       console.log("Odds 1: " + chance1 + " Odds 2: " + (1-chance1) );
       page.currentWinners[0]=page.whoWins(match1[0], match1[1]);
     var match2 = page.currentMatches.slice(2, 4);
@@ -201,13 +203,16 @@ var page = {
       }
     }
     $('#userMoney').html(page.currentUser.money);
-    var money = toString(page.currentUser.money);
+    var money = {money: page.currentUser.money};
+    console.log(money);
     $.ajax({
       method: 'POST',
       url: '/update-money',
       data: money,
-      success: function(){
+      success: function(resp){
         console.log("Received that shit");
+        console.log(resp);
+        console.log(money);
       },
       failure: function(){
         console.log("What the fuck");
@@ -216,8 +221,6 @@ var page = {
     });
     return wins;
   },
-  //the url for the database i'm using
-  url: "https://tiny-tiny.herokuapp.com/collections/terry",
   currentMatches : [],
   currentPicks: [],
   currentWinners: [],
