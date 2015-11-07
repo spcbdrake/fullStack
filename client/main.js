@@ -20,8 +20,8 @@ var page = {
       event.preventDefault();
       var username= $('input[name="userName"]').val();
       var pass = $('input[name="password"]').val();
-      $('input'[type="text"]).val("");
-      $('input'[type="password"]).val("");
+      $('input[name="userName"]').val("");
+      $('input[name="password"]').val("");
       var user = {userName: username, password: pass};
       //Does a GET call to get user data
       $.ajax({
