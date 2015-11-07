@@ -1,22 +1,17 @@
-/// login page /////
-.pongArt {
-  background-image: url('http://wallpapersdsc.net/wp-content/uploads/2015/09/Ping_Pong_HD_53.jpg');
-  background-size: contain;
-  width: 100%;
-  height: 140px;
-}
+
 
 body {
   background: white;
   margin: 0;
   padding: 0;
-}
 
+}
 .loginDiv {
-    width: 32%;
-    height: 300px;
-    background-color: #5b78de;
+  width: 24%;
+    height: 260px;
+    background-color: trasparent;
     margin: auto;
+    margin-top: 5%;
     border-radius: 30%;
 }
 
@@ -24,25 +19,36 @@ body {
 h1 {
    text-shadow: 2px 2px #8aacb8;
    font-size: 50px;
+   text-align: center;
+   color: white;
+   font-family: 'lobster', cursive;
 }
 
 .userName {
   display: block;
 margin-bottom: 6%;
-margin-top: 18%;
+margin-top: 10%;
 width: 70%;
 height: 35px;
+margin-left: 15%;
 }
 
 form {
-  margin-left: 23%;
-}
+  margin-left: 0%;
+background: gray;
+opacity: 0.9;
+width: 100%;
+margin-top: 33%;
+height: 230px;
+border: solid 1px skyblue;
+border-radius: 8%;}
 
 .password{
   display: block;
   margin-bottom: 10%;
   width: 70%;
   height: 35px;
+  margin-left: 15%;
 }
 
 .submit {
@@ -51,7 +57,13 @@ height: 43px;
 color: saddlebrown;
 font-weight: 900;
 font-size: x-large;
-margin-left: 7%;
+margin-left: 24%;
+border-radius: 20%;
+}
+
+.submit:hover {
+  transform: scale(1.2,1.2);
+  transition: 2s;
 }
 
 .active {
