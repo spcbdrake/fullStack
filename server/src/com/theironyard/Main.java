@@ -208,6 +208,6 @@ public class Main {
                     JsonSerializer serializer = new JsonSerializer();
                     return serializer.serialize(orderUsers(conn));
                 })
-        );Added o
+        );
     }
 }
