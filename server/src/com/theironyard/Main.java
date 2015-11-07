@@ -170,6 +170,7 @@ public class Main {
                 ((request, response) -> {
                     Session session = request.session();
                     String userName = session.attribute("userName");
+                    String password = session.attribute("password");
 
                     String money = request.queryParams("money");
 
@@ -177,6 +178,7 @@ public class Main {
                         int newMoney = Integer.valueOf(money);
                         User me = selectUser(conn, userName);
                         updateMoney(conn, me.id, newMoney);
+                        insertUser(conn, me.userName, me.password, newMoney);
                     } catch (Exception e) {
                     }
 
