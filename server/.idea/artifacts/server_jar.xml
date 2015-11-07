@@ -3,7 +3,10 @@
     <output-path>$PROJECT_DIR$/out/artifacts/server_jar</output-path>
     <root id="archive" name="server.jar">
       <element id="module-output" name="server" />
+<<<<<<< HEAD
+=======
       <element id="extracted-dir" path="$MAVEN_REPOSITORY$/com/h2database/h2/1.4.190/h2-1.4.190.jar" path-in-jar="/" />
+>>>>>>> 12504286d92a7299c8b9a153a001f31d87291f0d
       <element id="extracted-dir" path="$MAVEN_REPOSITORY$/com/sparkjava/spark-core/2.3/spark-core-2.3.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/slf4j/slf4j-api/1.7.12/slf4j-api-1.7.12.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/slf4j/slf4j-simple/1.7.12/slf4j-simple-1.7.12.jar" path-in-jar="/" />
@@ -24,6 +27,10 @@
       <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/jodd/jodd-json/3.6.6/jodd-json-3.6.6.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/jodd/jodd-core/3.6.6/jodd-core-3.6.6.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/jodd/jodd-bean/3.6.6/jodd-bean-3.6.6.jar" path-in-jar="/" />
+<<<<<<< HEAD
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/com/h2database/h2/1.4.190/h2-1.4.190.jar" path-in-jar="/" />
+=======
+>>>>>>> 12504286d92a7299c8b9a153a001f31d87291f0d
     </root>
   </artifact>
 </component>
