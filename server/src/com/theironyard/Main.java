@@ -168,7 +168,7 @@ public class Main {
                 ((request, response) -> {
                     Session session = request.session();
                     session.invalidate();
-                    return "";
+                    return "Logged Out";
                 })
         );
 
