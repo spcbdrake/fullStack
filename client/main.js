@@ -4,7 +4,7 @@ $('document').ready(function(){
 $('form').on('click','.submit', function(e){
   e.preventDefault();
   $('.section2').removeClass('hidden');
-  $('.loginDiv').addClass('hidden');
+  $('.section1').addClass('hidden');
   $('.pongArt').addClass('hidden');
 });
 
