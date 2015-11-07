@@ -221,6 +221,23 @@ var page = {
     });
     return wins;
   },
+  pullTopTen: function(){
+    $.ajax({
+      method: 'GET',
+      url: '/topTen',
+      success: function(data){
+      console.log(data);
+      page.displayTopUsers(JSON.parse(data));
+      }
+    });
+  },
+  displayTopUsers: function(data){
+    var topHtml = "";
+    _.each(data, function(currVal, idx, arr){
+      topHtml += "<li>" + currVal.userName + ": $" + currVal.money + "</li>";
+    });
+    $('#theBest').html(topHtml);
+  },
   currentMatches : [],
   currentPicks: [],
   currentWinners: [],
