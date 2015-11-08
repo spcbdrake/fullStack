@@ -119,7 +119,8 @@ img {
 
 .bottomLeftDiv {
   background-color: #5B78DE;
-  display: inline-grid; }
+  display: inline-grid;
+  height: 140px; }
 
 .colRight {
   float: right;
