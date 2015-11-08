@@ -8,28 +8,26 @@
     <link href='https://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
   </head>
   <body>
-          <div style="position: fixed; z-index: -99; width: 100%; height: 100%" class="video">
-          <iframe frameborder="0" height="100%" width="100%"
-          src="https://youtube.com/embed/rQFwd7NVaOw?autoplay=1&controls=0&showinfo=0&autohide=1">
-          </iframe>
+          <div style="position: fixed; z-index: -99; width: 100%; height: 100%" class="video hidden">
+            <iframe frameborder="0" height="100%" width="100%"
+              src="https://youtube.com/embed/rQFwd7NVaOw?autoplay=1&controls=0&showinfo=0&autohide=1">
+            </iframe>
           </div>
 
 
-<section class="section1">
-      <section class="loginDiv">
-         <h1>Pong Kings</h1>
-                <form id="returning">
-                <input name="userName" type="text" placeholder="Enter User Name" class="userName">
-                <input name="password" type="password" placeholder="Enter password" class="password">
-                <input type="submit" name="submit" value="submit" class="submit">
-                </form>
-</section>
-
-
+    <section class="section1 hidden">
+        <section class="loginDiv">
+           <h1>Pong Kings</h1>
+                  <form id="returning">
+                    <input name="userName" type="text" placeholder="Enter User Name" class="userName">
+                    <input name="password" type="password" placeholder="Enter password" class="password">
+                    <input type="submit" name="submit" value="submit" class="submit">
+                  </form>
+        </section>
     </section>
 
 
-    <section class="section2 hidden">
+    <section class="section2">
 
       <div class="mainHeader">
         <img src="images/pongIcon.png" id="pongIcon" alt="">
@@ -52,15 +50,15 @@
             </ol>
           </div>
           <div class=" bottomLeftDiv">
-            <button class="btn btn-default" type="submit">submit</button>
-            <button class="btn btn-default" type="submit">submit</button>
+              <button class="btn btn-default btn-sm submitPicks" type="submit">Submit Picks</button>
+              <button class="btn btn-default btn-sm nextDay" type="submit">Next Day</button>
           </div>
         </div>
         <div class="col-md-9 colRight">
           <div class="row">
           <div class="col-md-5 colRightTop">
-          <article id="match" data-index="1">
-            <img src="images/ping3.jpg" id="playerImg"><span id="playerName">Hilda Forehand</span>
+          <article class="match" data-index="0">
+            <img src="images/hildaforehand.jpg" class="playerImg"><span class="playerName">Hilda Forehand</span>
             <br>
             <h4 class="odds">20-1</h4>
           </article>
@@ -69,8 +67,8 @@
             <p class="vs">VS</p>
           </div>
           <div class="col-md-5 colRightTop">
-            <article id="match" data-index="1">
-              <img src="images/ping9.jpg" id="playerImg"><span id="playerName">Stan the Man</span>
+            <article class="match" data-index="1">
+              <img src="images/karlwolfschtagg.jpg" class="playerImg"><span class="playerName">Karl Wolfschtagg</span>
               <br>
               <h4 class="odds">20-1</h4>
             </article>
@@ -106,11 +104,6 @@
         <img src="images/pongKingsIcon.png" id="footerIcon" alt="">
       </footer>
     </section>
-
-
-
-
-
 
 
 

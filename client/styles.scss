@@ -33,7 +33,7 @@ height: 35px;
 margin-left: 15%;
 }
 
-form {
+#returning {
   margin-left: 0%;
 background: gray;
 opacity: 0.9;
@@ -115,6 +115,7 @@ img {
     background-color: #5B78DE;
     min-height: 308px;
     box-shadow: 2px 2px 2px #8aacb8;
+    padding-top: 1px;
     h3 {
       font-size: 2em;
       text-align: center;
@@ -144,10 +145,18 @@ img {
   }
 }
 
+
 .bottomLeftDiv {
-  background-color: #5B78DE;
   display: inline-grid;
-  height: 140px;
+  #makePicks {
+    padding: 1% 3%;
+    font-weight: bold;
+  }
+  .submitPicks, .nextDay {
+    margin: 5% 7%;
+    box-shadow: 2px 2px 2px #8aacb8;
+    font-weight: bold;
+  }
 }
 
 
@@ -172,9 +181,9 @@ img {
   font-size: 3em;
   padding-top: 50px;
 }
-#match{
+.match{
   margin-top: 10px;
-  #playerName{
+  .playerName{
     display: block;
     margin-top: 1%;
     font-weight: bold;
@@ -185,7 +194,7 @@ img {
   }
 }
 
-#playerImg {
+.playerImg {
 margin: -1% 0 0 34%;
 }
 
