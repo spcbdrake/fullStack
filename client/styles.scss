@@ -147,17 +147,15 @@ img {
 
 
 .bottomLeftDiv {
-  border: 1px solid #8aacb8;
   display: inline-grid;
-  height: 150px;
-  box-shadow: 2px 2px 2px #8aacb8;
   #makePicks {
     padding: 1% 3%;
     font-weight: bold;
   }
-  .picksButton, .submitPicks {
-    float: right;
-    margin-top: 2%;
+  .submitPicks, .nextDay {
+    margin: 5% 7%;
+    box-shadow: 2px 2px 2px #8aacb8;
+    font-weight: bold;
   }
 }
 
