@@ -39,9 +39,11 @@ var page = {
           page.currentUser = {userName: currentUser.userName, money: currentUser.money};
           console.log("Current User", currentUser);
           $('section').toggleClass('hidden');
+          $('iframe').remove();
           $('.video').toggleClass('hidden');
           $('#userName').html(currentUser.userName);
           $('#userMoney').html(currentUser.money);
+          page.grabMatches();
           page.pullTopTen();
         }
         },
@@ -62,32 +64,27 @@ var page = {
         success: function(resp){
           console.log(resp);
           $('section').toggleClass('hidden');
+          $('.video').toggleClass('hidden');
+
       },
         failure: function(resp){
           console.log(resp);
           console.log("what happened?");
         }
       });
-
-
     });
-    // if you are creating a new user this sends upon submitting the info
-    $('#newLogin').on('submit', function(event){
+    $('.colRight').on('click', 'article', function(event){
       event.preventDefault();
-      var userName = $('input[name="newUserName"]').val();
-      var password = $('input[name="newPassword"]').val();
-      // Performs a GET to make sure the userName is not taken
-      $.ajax({
-        method: 'GET',
-        url: page.url,
-        success: function(data){
-          var userInfo = data;
-          page.checkForUser(userName, password, userInfo);
-        },
-        failure: function(data){
-          console.log("something went wrong");
-        }
-      });
+      var whichClicked = $(this).data('index');
+      if(whichClicked < 2){
+        page.currentPicks[0]= page.currentMatches[whichClicked];
+      }
+      else if(whichClicked <4){
+        page.currentPicks[1] = page.currentMatches[whichClicked];
+      }
+      else{
+        page.currentPicks[2] = page.currentMatches[whichClicked];
+      }
     });
   },
    //this is just a quick workaround I was using to instantly create users in the console. Not used in the end product
@@ -102,69 +99,8 @@ var page = {
       failure: function(){
         console.log("What's going on?");
       }
-
     });
 
-  },
-
-  //function that checks if user exists and verifies passwords of existing users
-  checkPassword: function(username, userPassword, userInfo){
-    // if the user does not exist then it opens up the new login
-    if(_.findWhere(userInfo, {userName: username})=== undefined){
-      alert("no user exists");
-      $('#newLogin').toggleClass('hidden');
-    }
-    //if the user exists then it checks the password
-    else{
-    _.each(userInfo, function(currVal, idx, arr){
-      if(currVal.userName === username){
-        //if the password corresponds to the username then it logs you in
-        if(currVal.password === userPassword){
-
-        $('section').toggleClass('hidden');
-        $('#currentUser').html(username);
-        $('#userMoney').html(currVal.money);
-        }
-
-        //if it doesn't then you get an alert that the wrong password was entered and you have to try again
-        else{
-          alert("Wrong Password");
-        }
-      }
-
-    });
-    }
-  },
-
-  //searching for whether or not the user already exists
-  checkForUser: function(username, passWord, info){
-    //if the user does not exist in the database then it makes a new user
-    if(_.findWhere(info, {userName: username}) === undefined){
-      var newUser = {userName: username, password: passWord, money: 20};
-
-      // POST call to add the user and his info to the database
-      $.ajax({
-        method: 'POST',
-        url: page.url,
-        data: newUser,
-        success: function(resp){
-          console.log("That worked");
-          // user is now logged in and main page will display
-          $('section').toggleClass('hidden');
-          $('#currentUser').html(newUser.userName);
-          $('#userMoney').html(newUser.money);
-        },
-        failure: function(resp){
-          console.log("Something went wrong");
-        }
-
-      });
-    }
-
-    //if the userName is taken then you have to try again
-    else{
-      alert("That username already exists. Please pick a new one or log in with your password.");
-    }
   },
   grabMatches: function(){
     $.ajax({
@@ -173,14 +109,58 @@ var page = {
       success: function(data){
       console.log(JSON.parse(data));
       page.currentMatches = JSON.parse(data);
+      page.fillMatches();
       }
+    });
+  },
+  fillMatches: function(){
+    //set up first match
+      page.match1 = page.currentMatches.slice(0,2);
+      console.log("Match 1", page.match1);
+      var chance1 = page.match1[0].level/(page.match1[0].level+page.match1[1].level);
+      var chance2 = 1-chance1;
+      var payOut1 = page.match1[1].level/page.match1[0].level;
+      var payOut2 = 1/payOut1;
+      page.match1[0].odds = chance1;
+      page.currentMatches[0].odds = chance1;
+      page.match1[0].payOut = payOut1;
+      page.match1[1].odds = chance2;
+      page.currentMatches[1].odds = chance2;
+      page.match1[1].payOut = payOut2;
+    // set up second match
+      page.match2 = page.currentMatches.slice(2, 4);
+      var chance3 = page.match2[0].level/(page.match2[0].level+page.match2[1].level);
+      var chance4 = 1-chance3;
+      var payOut3 = page.match2[1].level/page.match2[0].level;
+      var payOut4 = 1/payOut3;
+      page.match2[0].odds = chance3;
+      page.currentMatches[2].odds = chance3;
+      page.match2[0].payOut = payOut3;
+      page.match2[1].odds = chance4;
+      page.currentMatches[3].odds = chance4;
+      page.match2[1].payOut = payOut4;
+    // set up third match
+      page.match3 = page.currentMatches.slice(4,6);
+      var chance5 = page.match3[0].level/(page.match3[0].level+page.match3[1].level);
+      var chance6 = 1-chance5;
+      var payOut5 = page.match3[1].level/page.match3[0].level;
+      var payOut6 = 1/payOut5;
+      page.match3[0].odds = chance5;
+      page.currentMatches[4].odds = chance5;
+      page.match3[0].payOut = payOut5;
+      page.match3[1].odds = chance6;
+      page.currentMatches[5].odds = chance6;
+      page.match3[1].payOut = payOut6;
+
+    _.each(page.currentMatches, function(currVal, idx, arr){
+      $('article[data-index="'+idx+'"]').html("<img src='" + "images/"+currVal.id+".jpg' class='playerImg'><span class='playerName'>"+currVal.name+"</span><br><h4 class='odds'>"+(currVal.odds*100).toFixed(0)+"%</h4>");
     });
   },
   makePicks: function(pick1, pick2, pick3){
     page.currentPicks = [pick1.name, pick2.name, pick3.name];
   },
   runMatches: function(){
-    var match1 = page.currentMatches.slice(0,2);
+    /*var match1 = page.currentMatches.slice(0,2);
       console.log("Match 1", match1);
       var chance1 = match1[0].level/(match1[0].level+match1[1].level);
       var chance2 = 1-chance1;
@@ -190,12 +170,12 @@ var page = {
       match1[0].payOut = payOut1;
       match1[1].odds = chance2;
       match1[1].payOut = payOut2;
-      console.log("Odds 1: " + chance1 + " Odds 2: " + (1-chance1) );
+      console.log("Odds 1: " + chance1 + " Odds 2: " + (1-chance1) );*/
       page.currentWinners[0]=page.whoWins(match1[0], match1[1]);
-    var match2 = page.currentMatches.slice(2, 4);
+    //var match2 = page.currentMatches.slice(2, 4);
       console.log("Match 2", match2);
       page.currentWinners[1]=page.whoWins(match2[0], match2[1]);
-    var match3 = page.currentMatches.slice(4,6);
+  //  var match3 = page.currentMatches.slice(4,6);
       console.log("Match 3", match3);
       page.currentWinners[2]=page.whoWins(match3[0], match3[1]);
   },
@@ -263,8 +243,11 @@ var page = {
     $('#theBest').html(topHtml);
   },
   currentMatches : [],
-  currentPicks: [],
+  currentPicks: [{},{},{}],
   currentWinners: [],
   currentUser: {},
+  match1: [],
+  match2: [],
+  match3: []
 
 };
