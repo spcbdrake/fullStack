@@ -8,11 +8,11 @@
     <link href='https://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
   </head>
   <body>
-          <!-- <div style="position: fixed; z-index: -99; width: 100%; height: 100%" class="video hidden">
+          <div style="position: fixed; z-index: -99; width: 100%; height: 100%" class="video hidden">
             <iframe frameborder="0" height="100%" width="100%"
               src="https://youtube.com/embed/rQFwd7NVaOw?autoplay=1&controls=0&showinfo=0&autohide=1">
             </iframe>
-          </div> -->
+          </div>
 
 
     <section class="section1 hidden">
@@ -52,18 +52,19 @@
           <div class=" bottomLeftDiv">
             <form id="makePicks">
               Make Your Picks:<br>
-              <input type="text" name="firstname" placeholder="Opponent A, Opponent B" class="form-control">
+              <input type="text" name="firstname" placeholder="Submit Picks" class="form-control submitPicks">
               <br>
-              Place Your Bet:<br>
-              <input type="text" name="lastname" placeholder="$1-100" class="form-control">
+              Next Day:<br>
+              <input type="text" name="lastname" placeholder="Next Day" class="form-control nextDay">
+              <button class="btn btn-default btn-xs picksButton" type="submit">Submit</button>
             </form>
           </div>
         </div>
         <div class="col-md-9 colRight">
           <div class="row">
           <div class="col-md-5 colRightTop">
-          <article id="match" data-index="1">
-            <img src="images/hildaforehand.jpg" id="playerImg"><span id="playerName">Hilda Forehand</span>
+          <article class="match" data-index="0">
+            <img src="images/hildaforehand.jpg" class="playerImg"><span class="playerName">Hilda Forehand</span>
             <br>
             <h4 class="odds">20-1</h4>
           </article>
@@ -72,8 +73,8 @@
             <p class="vs">VS</p>
           </div>
           <div class="col-md-5 colRightTop">
-            <article id="match" data-index="1">
-              <img src="images/karlwolfschtagg.jpg" id="playerImg"><span id="playerName">Karl Wolfschtagg</span>
+            <article class="match" data-index="1">
+              <img src="images/karlwolfschtagg.jpg" class="playerImg"><span class="playerName">Karl Wolfschtagg</span>
               <br>
               <h4 class="odds">20-1</h4>
             </article>
