@@ -181,8 +181,13 @@ var page = {
     var match1 = page.currentMatches.slice(0,2);
       console.log("Match 1", match1);
       var chance1 = match1[0].level/(match1[0].level+match1[1].level);
+      var chance2 = 1-chance1;
       var payOut1 = match1[1].level/match1[0].level;
       var payOut2 = 1/payOut1;
+      match1[0].odds = chance1;
+      match1[0].payOut = payOut1;
+      match1[1].odds = chance2;
+      match1[1].payOut = payOut2;
       console.log("Odds 1: " + chance1 + " Odds 2: " + (1-chance1) );
       page.currentWinners[0]=page.whoWins(match1[0], match1[1]);
     var match2 = page.currentMatches.slice(2, 4);
