@@ -8,17 +8,22 @@
     <link href='https://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
   </head>
   <body>
+          <!-- <div style="position: fixed; z-index: -99; width: 100%; height: 100%" class="video hidden">
+            <iframe frameborder="0" height="100%" width="100%"
+              src="https://youtube.com/embed/rQFwd7NVaOw?autoplay=1&controls=0&showinfo=0&autohide=1">
+            </iframe>
+          </div> -->
 
-    <header class="pongArt hidden">
-    </header>
 
-      <section class="loginDiv hidden">
-         <h1>Pong Kings</h1>
-                <form id="returning">
-                <input name="userName" type="text" placeholder="Enter User Name" class="userName">
-                <input name="password" type="password" placeholder="Enter password" class="password">
-                <input type="submit" name="submit" value="submit" class="submit">
-                </form>
+    <section class="section1 hidden">
+        <section class="loginDiv">
+           <h1>Pong Kings</h1>
+                  <form id="returning">
+                    <input name="userName" type="text" placeholder="Enter User Name" class="userName">
+                    <input name="password" type="password" placeholder="Enter password" class="password">
+                    <input type="submit" name="submit" value="submit" class="submit">
+                  </form>
+        </section>
     </section>
 
 
@@ -45,8 +50,13 @@
             </ol>
           </div>
           <div class=" bottomLeftDiv">
-            <button class="btn btn-default" type="submit">submit</button>
-            <button class="btn btn-default" type="submit">submit</button>
+            <form id="makePicks">
+              Make Your Picks:<br>
+              <input type="text" name="firstname" placeholder="Opponent A, Opponent B" class="form-control">
+              <br>
+              Place Your Bet:<br>
+              <input type="text" name="lastname" placeholder="$1-100" class="form-control">
+            </form>
           </div>
         </div>
         <div class="col-md-9 colRight">
@@ -99,11 +109,6 @@
         <img src="images/pongKingsIcon.png" id="footerIcon" alt="">
       </footer>
     </section>
-
-
-
-
-
 
 
 
