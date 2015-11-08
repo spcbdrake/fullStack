@@ -39,8 +39,10 @@ var page = {
           page.currentUser = {userName: currentUser.userName, money: currentUser.money};
           console.log("Current User", currentUser);
           $('section').toggleClass('hidden');
+          $('.video').toggleClass('hidden');
           $('#userName').html(currentUser.userName);
           $('#userMoney').html(currentUser.money);
+          page.pullTopTen();
         }
         },
         failure: function(){
