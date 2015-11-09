@@ -111,23 +111,40 @@ var page = {
       event.preventDefault();
       var whichClicked = $(this).data('index');
       var $imgChild = $(this).children('img');
-      if($imgChild.hasClass('selected')){
-        console.log("selected already");
-        $imgChild.removeClass('selected');
-      }
-      else{
-      $imgChild.addClass('selected');
       if(whichClicked < 2){
+        $('article[data-index="0"] img').removeClass('selected');
+        $('article[data-index="1"] img').removeClass('selected');
+        if(page.currentPicks[0] === page.currentMatches[whichClicked]){
+          page.currentPicks[0] = {name: "none"};
+        }
+        else{
+        $imgChild.addClass('selected');
         page.currentPicks[0]= page.currentMatches[whichClicked];
+        }
       }
       else if(whichClicked <4){
+        $('article[data-index="2"] img').removeClass('selected');
+        $('article[data-index="3"] img').removeClass('selected');
+        if(page.currentPicks[1] === page.currentMatches[whichClicked]){
+          page.currentPicks[1] = {name: "none"};
+        }
+        else{
+        $imgChild.addClass('selected');
         page.currentPicks[1] = page.currentMatches[whichClicked];
+        }
       }
       else{
+        $('article[data-index="4"] img').removeClass('selected');
+        $('article[data-index="5"] img').removeClass('selected');
+        if(page.currentPicks[2] === page.currentMatches[whichClicked]){
+          page.currentPicks[2] = {name: "none"};
+        }
+        else{
+        $imgChild.addClass('selected');
         page.currentPicks[2] = page.currentMatches[whichClicked];
+        }
       }
       $('#yourPicks').html("Your Picks: "+ page.currentPicks[0].name + ", "+ page.currentPicks[1].name + ", "+ page.currentPicks[2].name);
-    }
     });
   },
   grabMatches: function(){
