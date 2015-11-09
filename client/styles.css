@@ -183,3 +183,6 @@ footer {
     display: inline-block; }
     footer li img {
       max-width: 50px; }
+
+.selected {
+  border: 1px solid red; }
