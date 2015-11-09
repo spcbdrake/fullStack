@@ -1,3 +1,8 @@
+(function() {
+  'use strict';
+
+
+
 $(document).ready(function(){
   page.init();
 });
@@ -30,14 +35,11 @@ var page = {
         data: user,
         success: function(resp){
           if(resp === "403"){
-            console.log("you fucked up");
             alert("Wrong Password");
           }
           else{
-          console.log(resp);
           var currentUser = JSON.parse(resp);
           page.currentUser = {userName: currentUser.userName, money: currentUser.money};
-          console.log("Current User", currentUser);
           $('section').toggleClass('hidden');
           $('iframe').remove();
           $('.video').toggleClass('hidden');
@@ -48,7 +50,6 @@ var page = {
         }
         },
         failure: function(){
-          console.log("you fucked up");
           alert("Wrong Password");
         }
 
@@ -97,13 +98,11 @@ var page = {
         url: '/logout',
         data: page.currentUser,
         success: function(resp){
-          console.log(resp);
           $('section').toggleClass('hidden');
           $('.video').toggleClass('hidden');
 
       },
         failure: function(resp){
-          console.log(resp);
           console.log("what happened?");
         }
       });
@@ -145,7 +144,6 @@ var page = {
   fillMatches: function(){
     //set up first match
       page.match1 = page.currentMatches.slice(0,2);
-      console.log("Match 1", page.match1);
       var chance1 = page.match1[0].level/(page.match1[0].level+page.match1[1].level);
       var chance2 = 1-chance1;
       var payOut1 = page.match1[1].level/page.match1[0].level;
@@ -250,13 +248,12 @@ var page = {
       url: '/update-money',
       data: money,
       success: function(resp){
-        console.log("Received that shit");
-        console.log(resp);
+        console.log("Received updated funds");
         console.log(money);
         page.pullTopTen();
       },
       failure: function(){
-        console.log("What the fuck");
+        console.log("What the heck");
       }
 
     });
@@ -267,7 +264,6 @@ var page = {
       method: 'GET',
       url: '/topTen',
       success: function(data){
-      console.log(data);
       page.displayTopUsers(JSON.parse(data));
       }
     });
@@ -289,3 +285,5 @@ var page = {
   timesSubmitted: 0,
 
 };
+
+}());
