@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Pong Kings</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles.css">
+    <link href='https://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+  </head>
+  <body>
+          <div style="position: fixed; z-index: -99; width: 100%; height: 100%" class="video">
+            <iframe frameborder="0" height="100%" width="100%"
+              src="https://youtube.com/embed/rQFwd7NVaOw?autoplay=1&controls=0&showinfo=0&autohide=1">
+            </iframe>
+          </div>
+
+
+    <section class="section1">
+        <section class="loginDiv">
+           <h1>Pong Kings</h1>
+                  <form id="returning">
+                    <input name="userName" type="text" placeholder="Enter User Name" class="userName">
+                    <input name="password" type="password" placeholder="Enter password" class="password">
+                    <input type="submit" name="submit" value="submit" class="submit">
+                  </form>
+        </section>
+    </section>
+
+
+    <section class="section2 hidden">
+
+      <div class="mainHeader">
+        <img src="images/pongIcon.png" id="pongIcon" alt="">
+        <h1>Pong Kings</h1>
+        <h3><span id="userName">User</span>: $<span id="userMoney">100</span></h3>
+        <button class="btn btn-default btn-xs logoutBtn" type="submit">Log Out</button>
+      </div>
+      <div class="container">
+        <div class="col-md-3 colLeft">
+          <div class=" colLeftTop">
+            <h3>Top Players</h3>
+            <ol id="theBest">
+              <li><span class="topUserName">Calvin</span>: $ <span class="topUserMoney">250</span></li>
+              <li>Zach</li>
+              <li>Terry</li>
+              <li>Josh</li>
+              <li>Juan</li>
+              <li>Ben</li>
+              <li>Jack</li>
+            </ol>
+          </div>
+          <div class=" bottomLeftDiv">
+              <button class="btn btn-default btn-sm submitPicks" type="submit">Submit Picks</button>
+              <button class="btn btn-default btn-sm nextDay" type="submit">Next Day</button>
+              <h6 id="yourPicks"></h6>
+              <h6 id="dailyWinners"></h6>
+              <h6 id="dailyWinnings"></h6>
+          </div>
+        </div>
+        <div class="col-md-9 colRight">
+          <div class="row">
+          <div class="col-md-5 colRightTop">
+          <article class="match" data-index="0">
+            <img src="images/1.jpg" class="playerImg"><span class="playerName">Hilda Forehand</span>
+            <br>
+            <h4 class="odds">20-1</h4>
+          </article>
+          </div>
+          <div class="col-md-2 colRightTop">
+            <p class="vs">VS</p>
+          </div>
+          <div class="col-md-5 colRightTop">
+            <article class="match" data-index="1">
+              <img src="images/2.jpg" class="playerImg"><span class="playerName">Karl Wolfschtagg</span>
+              <br>
+              <h4 class="odds">20-1</h4>
+            </article>
+          </div>
+        </div>
+          <div class="row">
+          <div class="col-md-5 colRightMiddle">
+            <article class="match" data-index="2">
+              <img src="images/3.jpg" class="playerImg"><span class="playerName">Ned Armstrong</span>
+              <br>
+              <h4 class="odds">20-1</h4>
+            </article>
+          </div>
+          <div class="col-md-2 colRightMiddle">
+            <p class="vs">VS</p>
+          </div>
+          <div class="col-md-5 colRightMiddle">
+            <article class="match" data-index="3">
+              <img src="images/8.jpg" class="playerImg"><span class="playerName">Ed Kennedy</span>
+              <br>
+              <h4 class="odds">20-1</h4>
+            </article>
+          </div>
+        </div>
+          <div class="row">
+          <div class="col-md-5 colRightMiddle">
+            <article class="match" data-index="4">
+              <img src="images/7.jpg" class="playerImg"><span class="playerName">Gilbert Nardwar</span>
+              <br>
+              <h4 class="odds">20-1</h4>
+            </article>
+          </div>
+          <div class="col-md-2 colRightMiddle">
+            <p class="vs">VS</p>
+          </div>
+          <div class="col-md-5 colRightMiddle">
+            <article class="match" data-index="5">
+              <img src="images/4.jpg" class="playerImg"><span class="playerName">Terry Patel</span>
+              <br>
+              <h4 class="odds">20-1</h4>
+            </article>
+          </div>
+        </div>
+       </div>
+      </div>
+
+      <footer>
+        <p>&copy; Pong Kings Inc</p>
+        <img src="images/pongKingsIcon.png" id="footerIcon" alt="">
+      </footer>
+    </section>
+
+
+
+
+    <script src="bower_components/underscore/underscore.js" charset="utf-8"></script>
+    <script src="bower_components/jquery/dist/jquery.js" charset="utf-8"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+    <script src="main.js" charset="utf-8"></script>
+  </body>
+</html>

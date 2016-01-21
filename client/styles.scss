@@ -1,0 +1,233 @@
+
+
+body {
+  background: white;
+  margin: 0;
+  padding: 0;
+
+}
+.loginDiv {
+  width: 24%;
+    height: 260px;
+    background-color: trasparent;
+    margin: auto;
+    margin-top: 5%;
+    border-radius: 30%;
+}
+
+
+h1 {
+   text-shadow: 2px 2px #8aacb8;
+   font-size: 50px;
+   text-align: center;
+   color: white;
+   font-family: 'lobster', cursive;
+}
+
+.userName {
+  display: block;
+margin-bottom: 6%;
+margin-top: 10%;
+width: 70%;
+height: 35px;
+margin-left: 15%;
+}
+
+#returning {
+  margin-left: 0%;
+background: gray;
+opacity: 0.9;
+width: 100%;
+margin-top: 33%;
+height: 230px;
+border: solid 1px skyblue;
+border-radius: 8%;}
+
+.password{
+  display: block;
+  margin-bottom: 10%;
+  width: 70%;
+  height: 35px;
+  margin-left: 15%;
+}
+
+.submit {
+  width: 50%;
+height: 43px;
+color: saddlebrown;
+font-weight: 900;
+font-size: x-large;
+margin-left: 24%;
+border-radius: 20%;
+}
+
+.submit:hover {
+  transform: scale(1.2,1.2);
+  transition: 2s;
+}
+
+.active {
+  display: inline-block;
+}
+// login ///////////
+
+//Main Page Section//
+
+img {
+  width: 100px;
+  border-radius: 100%;
+}
+
+.mainHeader {
+  width: 100%;
+  border-bottom: 2px solid #8aacb8;
+  background-color: #5B78DE;
+  h1 {
+    text-align: center;
+    margin: -5% 0 3% 0;
+    font-family: 'Lobster', cursive;
+    font-size: 4em;
+  }
+  #pongIcon {
+    width: 65px;
+    margin: 2% 0 0 6%;
+    border-radius: 0;
+  }
+  h3 {
+    float: right;
+    margin: -5.5% 13.5% 0 0;
+  }
+}
+
+.logoutBtn {
+  float: right;
+  margin-top: -5.25%;
+  margin-right: 8%;
+}
+
+.container {
+  .colLeft div {
+    display: block;
+  }
+  margin-top: 2%;
+  margin-bottom: 2%;
+  .colLeftTop {
+    background-color: #5B78DE;
+    min-height: 308px;
+    box-shadow: 2px 2px 2px #8aacb8;
+    padding-top: 1px;
+    h3 {
+      font-size: 2em;
+      text-align: center;
+      background-color: white;
+      border-radius: 5px;
+      width: 80%;
+      margin-left: 10%;
+    }
+    #theBest {
+      list-style-type: none;
+      padding-left: 0;
+      li {
+      counter-increment: step-counter;
+      margin: 4%;
+      &:before { //Thanks for the tip, Dave! http://blog.teamtreehouse.com/customize-ordered-lists-pseudo-element
+        content: counter(step-counter);
+        margin-right: 10px;
+        font-size: 80%;
+        background-color: white;
+        color: black;
+        font-weight: bold;
+        padding: 3px 8px;
+        border-radius: 3px;
+        }
+      }
+    }
+  }
+}
+
+
+.bottomLeftDiv {
+  display: inline-grid;
+  #makePicks {
+    padding: 1% 3%;
+    font-weight: bold;
+  }
+  .submitPicks, .nextDay {
+    margin: 5% 7%;
+    box-shadow: 2px 2px 2px #8aacb8;
+    font-weight: bold;
+  }
+}
+
+
+.colRight {
+  float: right;
+  min-height: 400px;
+  .colRightTop, .colRightMiddle, .colRightBottom {
+    height: 150px;
+    margin-bottom: 1%;
+    background-color: #5B78DE;
+    overflow: hidden;
+    box-shadow: 2px 2px 2px #8aacb8;
+  }
+}
+.row{
+  margin-left: 0;
+  margin-right: 0;
+}
+.vs {
+  text-align: center;
+  font-weight: bold;
+  font-size: 3em;
+  padding-top: 50px;
+}
+.match{
+  margin-top: 10px;
+  .playerName{
+    display: block;
+    margin-top: 1%;
+    font-weight: bold;
+    font-size: 20px;
+    text-align: center;
+    background-color: white;
+    border-radius: 5px;
+  }
+}
+
+.playerImg {
+margin: -1% 0 0 34%;
+}
+
+.odds{
+  // text-align: center;
+  float: right;
+  margin-top: -13%;
+  margin-right: 5%;
+}
+
+
+footer {
+  background-color: #5B78DE;
+  min-height: 80px;
+  p {
+    padding: 2.25%  0 2% 6%;
+  }
+  border-top: 2px solid #8aacb8;
+  #footerIcon {
+    float: right;
+    max-width: 30px;
+    border-radius: 0;
+    margin: -5% 7% 0 0;
+  }
+  li {
+    list-style-type: none;
+    display: inline-block;
+    img {
+      max-width: 50px;
+    }
+  }
+}
+
+.selected{
+  border: 1px solid red;
+}
